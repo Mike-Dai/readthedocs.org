@@ -100,6 +100,10 @@ The Python version (this depends on :ref:`config-file/v2:build.image`).
 :Type: ``number``
 :Default: ``3``
 
+.. note::
+
+   If you use conda, the python version doesn't have any effect, that's managed by conda.
+
 python.install
 ``````````````
 
@@ -129,6 +133,10 @@ Example:
       install:
          - requirements: docs/requirements.txt
          - requirements: requirements.txt
+
+.. note::
+
+   If you use a conda environment, we don't install requirements from files here. You have to put the pip requirements inside the ``environment.yml`` used by conda.
 
 Packages
 ''''''''
@@ -193,6 +201,10 @@ Depending on the :ref:`config-file/v2:build.image`,
 Read the Docs includes some libraries like scipy, numpy, etc.
 That you can access to them by enabling this option.
 See :ref:`builds:The build environment` for more details.
+
+.. warning::
+
+   If you install your project with conda, you should not set the value to ``True``. Because the virtual environment creation in managed by conda. So, ``syste_packages`` does't have any effect.
 
 conda
 ~~~~~
